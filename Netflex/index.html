@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            background: url('background.jpeg' ) no-repeat ;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            color: white;
+        }
+
+        .content{
+            background-color: rgba(0, 0, 0, 0.422);
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 30px;
+        
+            
+        }
+        .nav .left {
+            width: 148px;
+            height: 40px;
+        }
+        .nav .left img {
+            width: 100%;
+            height: 100%;
+        }
+        .nav .center ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            
+            list-style: none;
+
+        }
+        .nav .center ul h2{
+            font-size: 18px;
+        }
+
+        ul li {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        ul li:last-child{
+            background-color: red;
+            cursor: pointer;
+            font-size: 42px;
+        }
+        
+        ul li:hover{
+            background-color: red;
+        }
+        .right{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 2rem;
+        }
+        .right img{
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+        }
+        .right i{
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.422);
+            padding: 10px;
+            border-radius: 50%;
+        }
+        .right i:first-child{
+            border-radius: 9px;
+            background-color: none;
+            
+        }
+        .right input{
+            border: none;
+            background-color: none;
+            outline: none;
+            font-size: 15px;
+            border-radius: 5px;
+            padding-left: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container" >
+       
+
+        <div class="content">
+
+            
+            <div class="nav">
+                <div class="left">
+                    <img src="Netflix-Logo.png" alt="" srcset="">
+                </div>
+
+                <div class="center">
+                    <ul>
+                        <li><h2>Home</h2></li>
+                        <li><h2>All Services </h2></li>
+                        <li><h2>Best Rating</h2></li>
+                        <li><h2>MyList</h2></li>    
+                        <li><h2>Login</h2></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <i><input type="text"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <img src="pp4.jpg" alt="" srcset="">
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="title">
+                    <h1>YOUR TITLE HERE</h1>
+                    <h4><span>99%</span></h4>
+                </div>
+            </div>
+
+            
+        
+        </div>
+
+    </div>
+    
+</body>
+</html>

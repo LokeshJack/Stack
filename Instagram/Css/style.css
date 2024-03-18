@@ -1,0 +1,232 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+   
+}
+
+
+/* Header */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px  18%;
+    border-bottom: 1px solid rgba(219, 219, 219, 1);
+    position: sticky;
+    top: 0;
+}
+header .logo{
+    height: 29px;
+    
+
+}
+header .logo img{
+    height: 100%;
+    object-fit: contain;
+}
+header .Search-box{
+    width: 250px;
+    background-color: rgba(239,239,239,1,);
+    padding: 3px 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+header .Search-box input{
+    border: none;
+    outline: none;
+    padding-left:10px ;
+    background-color: rgba(239,239,239,1,);
+    font-size: 15px;
+    color: black;
+}
+header nav ul{
+    list-style: none;
+    display: flex;
+
+}
+header nav ul li{
+    margin-right: 20px;
+   
+}
+header nav ul li :last-child{
+    margin-right: 0;
+}
+header nav ul li a img{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+header nav ul li a i{
+    font-size: 22px;
+    color: rgb(38, 38, 38);
+} 
+/* Section */
+section{
+    padding: 30px 18%;
+    background-color: #fafafa;
+    display: flex;
+}
+.left-side{
+    width: 65%;
+}
+.right-side{
+    width: 35%;
+}
+section .left-side .story{
+    display: flex;
+    padding: 16px;
+    background-color: white;
+    border: 1px solid (219,219,219,1);
+    border-radius: 3px;
+    
+}
+section .left-side .story .stories{
+    width: 17%;
+}
+section .left-side .story .stories img{ 
+    /* a ancher */
+    border-radius: 50%;
+    border: 2px solid #c62d8f;
+    padding: 1px;
+    object-fit: cover;
+}
+section .left-side .story .stories p{
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #262626;
+}
+.posts{
+    margin: 25px 0;
+    background-color: white;
+    border: 1px solid lightblue;
+    border-radius: 2px;
+}
+.posts .posttitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+.posts .posttitle .post-left {
+    display: flex;
+    align-items: center;
+}
+.posts .posttitle .post-left .images img{
+    border-radius: 50%;
+    object-fit: cover;
+}
+.posts .posttitle .post-left .images{
+    margin-right: 15px;
+    margin-left: 10px;
+}
+.posts .posttitle .post-left .details .name{
+    padding: 1px;
+    font-weight: bold;
+} 
+.posts .posttitle .post-right i{
+    margin-right: 15px;
+}
+
+
+.posts .post-container img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.posts .post-footer{
+padding: 16px;
+}
+
+.like-share-comment{
+    display: flex;
+    gap: 1rem;
+    font-size: 18px;
+    
+}
+.save{
+    font-size: 18px;
+}
+.post-credits a {
+    color: black;
+}
+.post-credits a .fa-heart:hover{
+    color: red;
+    
+}
+
+.post-credits{
+    display: flex;
+    justify-content: space-between;
+}
+.post-footer-content{
+    padding: 0 16px 16px 16px;
+}
+.post-footer-content p{
+    margin-bottom: 3px;
+}
+.post-footer-content .likes{
+    margin-bottom: 8px;
+}
+.post-footer-content .footname{
+    font-weight: 600;
+}
+.post-footer-content .footname span{
+    font-weight: normal;
+    margin-left: 10px;
+}
+.post-footer-content .posttime{
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+.post-footer-content .footcomment{
+
+}
+.post-footer-content .addcomments{
+    padding: 16px;
+    border-top: 1px solid #efefef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.post-footer-content .addcomments .left{
+    display: flex;
+    align-items: center;
+}
+
+.post-footer-content .addcomments .left i{
+    font-size: 22px;
+    margin-right: 15px;
+   
+}
+.post-footer-content .addcomments .right p{
+    margin-right: 20px;
+}
+.post-footer-content .addcomments .left input{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

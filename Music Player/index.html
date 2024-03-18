@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" href="download-removebg-preview.png" type="image/x-icon">
+    <title>Music Player</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        body {
+            background: linear-gradient(30deg, rgba(255, 0, 0, 0.72), rgba(210, 9, 146, 0.474)) no-repeat;
+            background-size: contain;
+            background-position: center;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .background {
+            border-radius: 20px;
+            width: 350px;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .frame {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            cursor: pointer;
+            width: 100%;
+
+            height: 50px;
+            font-size: larger;
+            font-weight: 800;
+
+        }
+
+        .poster {
+
+            width: 100%;
+        }
+
+        .poster img {
+            border-radius: 9%;
+            margin-left: 65px;     
+            animation: mymove 5s infinite;
+            width: 239px;
+            height: 239px;
+        }
+
+        /* @keyframes mymove {
+            50% {
+                transform: rotate(360deg);
+            }
+        } */
+
+        .details {
+
+            text-align: center;
+        }
+
+        .details h3 {
+            padding: 3px;
+        }
+
+        .progress {
+            background-color: chocolate;
+            height: 3px;
+            width: 80%;
+
+        }
+
+        .point {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: red;
+            margin-top: -3px;
+            margin-left: 100px;
+            cursor: pointer;
+
+        }
+
+        .time {
+            display: flex;
+            justify-content: space-around;
+            gap: 200px;
+            margin-top: -20px;
+
+        }
+
+        .player {
+            color: rgb(175, 141, 141);
+            display: flex;
+            justify-content: space-around;
+            gap: 50px;
+            font-size: 21px;
+            cursor: pointer;
+        }
+
+        .fa-circle-play {
+            font-size: 40px;
+            margin-top: -9px;
+        }
+
+        .duration {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .duration input {
+            width: 80%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="background">
+        <div class="frame">
+            <div class="navbar">
+                <i class="fa-solid fa-angle-down"></i>
+                <p>Now playing</p>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="poster">
+                <img src="poter.jpg" id="track_image" alt="" srcset="">
+            </div>
+            <div class="details">
+                <h3 id="title">Tamil M.A.</h3>
+                <p id="artist"> Yuvan Shankar Raja - ALBUM</p>
+            </div>
+
+            <div class="duration">
+                <input type="range" id="duration_slider" min="0" max="100" value="0" onclick="change_duration()">
+            </div>
+            <div class="time">
+                <p>01:10</p>
+                <p>04:30</p>
+            </div>
+            <div class="player">
+                <i class="fa-solid fa-repeat"></i>
+                <i onclick="previous_song()" id="pre" class="fa-solid fa-backward-step"></i>
+                <i onclick="justplay()" id="play" class="fa-solid fa-circle-play"></i>
+                <i onclick="next_song()" id="next" class="fa-solid fa-forward-step"></i>
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let previous = document.querySelector('#pre');
+
+        let play = document.querySelector('#play');
+
+        let next = document.querySelector('#next');
+
+        let title = document.querySelector('#title');
+
+        let artist = document.querySelector('#artist');
+
+        let slider = document.querySelector('#duration_slider');
+
+        let track_image = document.querySelector('#track_image');
+
+        let timer;
+
+        let autoplay = 1;
+
+        let index_no = 0;
+
+        let plaing_song = false;
+
+        let track = document.createElement('audio');
+
+
+
+        let All_song = [
+
+
+            {
+
+                name: "Mahabharat Krishna Flute",
+
+                path: "music/Mahabharat Krishna Flute.mp3",
+
+                img: "poter4.jpg",
+
+                artist: '"Venugopal"'
+
+            },
+            {
+                name: "Radha Krishna Flute",
+
+                path: "music/Radha Krishna Flute.mp3",
+
+                img: "poter3.jpg",
+
+                artist: '"Esaiah Udhayakumar"'
+
+            },
+            
+            {
+                name: "Siva Sivaya Potri",
+
+                path: "music/Sivan.mp3",
+
+                img: "poter5.jpg",
+
+                artist: '"Vaikkom Vijayalakshmi"'
+
+            },
+            {
+                name: "Shiv Tandav",
+
+                path: "music/Shiv Tandav.mp3",
+
+                img: "poter6.jpg",
+
+                artist: '"Esaiah Udhayakumar"'
+
+            }
+        ]
+
+
+
+        function load_track(index_no) {
+
+            clearInterval(timer);
+
+            reset_slider();
+
+            track.src = All_song[index_no].path;
+
+            title.innerHTML = All_song[index_no].name;
+
+            track_image.src = All_song[index_no].img;
+
+            artist.innerHTML = All_song[index_no].artist;
+
+            timer = setInterval(range_slider, 1000);
+
+            total.innerHTML = All_song.length;
+
+            present.innerHTML = index_no + 1;
+
+        }
+
+        load_track(index_no);
+
+        function justplay() {
+
+            if (plaing_song == false) {
+
+                playsong();
+
+            }
+
+            else {
+
+                pausesong();
+
+                I
+
+            }
+
+        }
+
+        function reset_slider() {
+
+            slider.value = 0;
+
+        }
+
+        function playsong() {
+
+            track.play();
+
+            plaing_song = true;
+
+            play.classList =  "fa fa-pause";
+
+        }
+
+        function pausesong() {
+
+            track.pause();
+
+            plaing_song = false;
+
+            play.classList = "fa-solid fa-circle-play";
+        }
+
+        function next_song() {
+
+            if (index_no < All_song.length - 1) {
+
+                index_no += 1;
+
+                load_track(index_no);
+
+                playsong();
+
+            }
+        else {
+
+            index_no = A;
+
+            load_track= playsong();
+
+            playsong();
+
+        }
+    }
+
+        function previous_song() {
+
+            if (index_no > 0) {
+
+                index_no -= 1;
+
+                load_track(index_no);
+
+                playsong();
+
+            }
+
+            else {
+
+                index_no = All_song.length;
+
+                load_track(index_no);
+
+                playsong();
+
+            }
+
+        }
+
+        function change_duration() {
+
+            slider_position = track.duration * (slider.value / 100);
+
+            track.currentTime = slider_position;
+
+        }
+    </script>
+</body>
+
+</html>
